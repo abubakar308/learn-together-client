@@ -3,7 +3,7 @@
 const Findturtors = () => {
     return (
         <div>
-            <p>find tutyors</p>
+            <p>find tutors</p>
         </div>
     );
 };

@@ -1,7 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png"
+import { useContext } from "react";
+import { Authcontext } from "../authprovider/Authprovider";
 
 const Navbar = () => {
+  const {user, logout} = useContext(Authcontext);
+  const navigate = useNavigate();
     return (
         <div className="navbar bg-base-100">
         <div className="navbar-start flex">
@@ -43,9 +47,19 @@ const Navbar = () => {
             <li><Link to="mybookedtutors">My booked tutors</Link></li>
           </ul>
         </div>
-        <div className="navbar-end">
-          <Link to='/login' className="btn">Login</Link>
-        </div>
+        <div className="flex items-center navbar-end gap-3">
+            {
+                user?.email && 
+                 <div>   <img title={user.displayName} className="rounded-full w-12 h-12" src={user?.photoURL} alt={user?.displayName} />
+                 </div>
+            }
+           {
+            user ?
+                <button onClick={()=>logout(navigate('/login'))} className="bg-gray-300 p-2 font-semibold"> Logout</button>
+                  :
+            <Link to='/login' className="bg-gray-300 p-2 font-semibold"> Login</Link>
+           }
+           </div>
       </div>
     );
 };

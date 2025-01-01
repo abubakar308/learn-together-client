@@ -41,13 +41,10 @@ const Register = () => {
         title: "Invalid Password",
         text: validationError,
       });
+      return;
     } 
     signUpNewUser(email,password)
     .then(result =>{
-      Swal.fire({
-        icon: "success",
-        title: "Register successfull",
-      });
       const user = result.user
       setUser(user);
      
@@ -56,6 +53,10 @@ const Register = () => {
         photoURL: photo,
         })
         .then(()=>{
+          Swal.fire({
+            icon: "success",
+            title: "Register successfull",
+          });
             navigate('/');
         })
         .catch((Error)=>{
@@ -64,7 +65,7 @@ const Register = () => {
     })
     .catch(Error => {
      console.log(Error)
-     navigate('/');
+    
     });
 };
 
@@ -78,7 +79,6 @@ const handleGoogleSignin = () =>{
   navigate('/');
   const user = result.user;
   setUser(user);
-
 })
 .catch((error)=>console.log(error.message));
 };

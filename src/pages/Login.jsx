@@ -7,14 +7,14 @@ import Swal from "sweetalert2";
 
 const Login = () => {
   const [togglePass, setTogglePass] = useState(false);
-    const { setUser, signInUser, googleSignIn,  setUserEmail } = useContext(Authcontext);
+    const { setUser, signInUser, googleSignIn } = useContext(Authcontext);
     const navigate = useNavigate();
     const location = useLocation();
     const handleLogin = e =>{
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        setUserEmail(email);
+       
         signInUser(email,password)
         .then(res=>{
             setUser(res);

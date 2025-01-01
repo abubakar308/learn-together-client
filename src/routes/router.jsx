@@ -28,11 +28,15 @@ const router = createBrowserRouter([
         },
         {
             path: "mybookedtutors",
-            element: <Mybookedtutor></Mybookedtutor>
+            element: <Privaterouter>
+              <Mybookedtutor></Mybookedtutor>
+            </Privaterouter>
          },
         {
             path: "tutordetails",
-            element: <TutorDetails></TutorDetails>
+            element: <Privaterouter>
+              <TutorDetails></TutorDetails>
+            </Privaterouter>
         },
         {
             path: "addtutorials",
@@ -42,8 +46,18 @@ const router = createBrowserRouter([
          },
          {
             path: "mytutirials",
-            element: <Mytutorials></Mytutorials>
+            element: <Privaterouter>
+              <Mytutorials></Mytutorials>
+            </Privaterouter>
          },
+         {
+          path: "category",
+          element: <Findturtors></Findturtors>
+        },
+        {
+          path: "/category/:language",
+          element: <Findturtors />
+        },
         {
             path: "register",
             element: <Register></Register>
@@ -51,13 +65,11 @@ const router = createBrowserRouter([
         {
             path: "login",
             element: <Login></Login>
-        }
+        },
+        
     ]
   },
-  {
-    path: "category",
-    element: <Findturtors></Findturtors>
-  },
+
   {
     path: "*",
     element: <Error></Error>

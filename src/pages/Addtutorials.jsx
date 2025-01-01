@@ -2,10 +2,11 @@ import { useContext, useState } from "react";
 import { Authcontext } from "../authprovider/Authprovider";
 
 const Addtutorials = () => {
-    const {user} = useContext(Authcontext)
+    const {user,} = useContext(Authcontext)
 
+    console.log(user)
     const [formData, setFormData] = useState({
-        name: user?.name || "",
+      displayName: user?.displayName || "",
         email: user?.email || "",
         image: "",
         language: "",
@@ -21,40 +22,55 @@ const Addtutorials = () => {
     
       const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Submitted:", formData);
-        // Add API call to save data in the database
+       
+        fetch('http://localhost:5000/addtutorials',{
+          method: "POST",
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          console.log(data)
+        })
+      
       };
+
     return (
         <div className="flex justify-center">
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
            <form onSubmit={handleSubmit} className="card-body">
      <label className="label">
-     <input type="text" value={formData.name} readOnly />
+     <input type="text" value={user.displayName} readOnly />
      </label>
      <label className="label">
-     <input type="email" value={formData.email} readOnly />
+     <input type="email" value={user.email} readOnly />
      </label>
       <label className="label">
-      <input type="url" name="image" placeholder="Image URL" onChange={handleChange} />
+      <input type="url" name="image" placeholder="Image URL" onChange={handleChange} required />
       </label>
      <label className="label">
-     <select>
-      <option value="">English tutors</option>
-      <option value=""></option>
-      <option value=""></option>
-      <option value=""></option>
-      <option value=""></option>
-      <option value=""></option>
-      <option value=""></option>
-      <option value=""></option>
-      <option value=""></option>
+     <select name="language"
+              value={formData.language}
+              onChange={handleChange} required>
+                 <option value="">select</option>
+      <option value="English tutors">English</option>
+      <option value="Spanish tutors">Spanish</option>
+      <option value="Franch tutor">Franch</option>
+      <option value="German tutor">German</option>
+      <option value="Itilian tutor">Italian</option>
+      <option value="Chinese tutor">Chinese</option>
+      <option value="Arabic tutor">Arabic</option>
+      <option value="Japanese tutor">Japanese</option>
+      <option value="Portuguese tutors">Portuguese</option>
      </select>
      </label>
       <label className="label">
-      <input type="number" name="price" placeholder="Price" onChange={handleChange} />
+      <input type="number" name="price" placeholder="Price" onChange={handleChange} required />
       </label>
      <label className="label">
-     <textarea name="description" placeholder="Description" onChange={handleChange}></textarea>
+     <textarea name="description" placeholder="Description" onChange={handleChange} required></textarea>
      </label>
       <button type="submit">Submit</button>
     </form>

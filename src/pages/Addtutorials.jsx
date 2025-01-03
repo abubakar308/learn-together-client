@@ -23,7 +23,7 @@ const Addtutorials = () => {
       const handleSubmit = (e) => {
         e.preventDefault();
        
-        fetch('http://localhost:5000/addtutorials',{
+        fetch('https://tutor-booking-server-ten.vercel.app/addtutorials',{
           method: "POST",
           headers: {
             'content-type': 'application/json'

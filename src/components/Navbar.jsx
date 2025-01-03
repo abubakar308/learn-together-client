@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png"
 import { useContext } from "react";
 import { Authcontext } from "../authprovider/Authprovider";
@@ -27,24 +27,24 @@ const Navbar = () => {
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-           <li><Link to="/">Home</Link></li>
-            <li><Link to="findtutors">Find tutors</Link></li>
-            <li><Link to="addtutorials">Add Tutorials</Link></li>
-            <li><Link to="mytutirials">My Tutorials</Link></li>
-            <li><Link to="mybookedtutors">My booked tutors</Link></li>
+           <li><NavLink to="/">Home</NavLink></li>
+            <li><NavLink to="findtutors">Find tutors</NavLink></li>
+            <li><NavLink to="addtutorials">Add Tutorials</NavLink></li>
+            <li><NavLink to="mytutirials">My Tutorials</NavLink></li>
+            <li><NavLink to="mybookedtutors">My booked tutors</NavLink></li>
             </ul>
           </div>
-          <Link to='/' className="text-xl">
+          <NavLink to='/' className="text-xl">
             <img className="h-16 w-16" src={logo} alt="" />
-          </Link>
+          </NavLink>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="findtutors">Find tutors</Link></li>
-            <li><Link to="addtutorials">Add Tutorials</Link></li>
-            <li><Link to="mytutirials">My Tutorials</Link></li>
-            <li><Link to="mybookedtutors">My booked tutors</Link></li>
+            <li><NavLink to="/">Home</NavLink></li>
+            <li><NavLink to="findtutors">Find tutors</NavLink></li>
+            <li><NavLink to="addtutorials">Add Tutorials</NavLink></li>
+            <li><NavLink to="mytutirials">My Tutorials</NavLink></li>
+            <li><NavLink to="mybookedtutors">My booked tutors</NavLink></li>
           </ul>
         </div>
         <div className="flex items-center navbar-end gap-3">

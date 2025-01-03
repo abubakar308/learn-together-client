@@ -1,43 +1,30 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-
-
 const Findturtors = () => {
     const [tutors, setTutors] = useState([]);
-    const {language} = useParams();
-    console.log(tutors);
+    const {category} = useParams();
 
-     
+     console.log(category);
   useEffect(() => {
-    if (!language) return;
-
-    const fetchCategoryTutors = async () => {
-      try {
-        const response = await fetch(
-          `http://localhost:5000/addtutorials?language=${language}`
-        );
-        if (response.ok) {
-          const categoryData = await response.json();
-          setTutors(categoryData);
-        }
-      } catch (error) {
-        console.error("Error fetching category-specific tutors:", error);
-      }
-    };
-
-    fetchCategoryTutors();
-  }, [language]);
+    fetch("https://tutor-booking-server-iembzkpnh.vercel.app/tutors")
+    .then(res=>res.json())
+    .then(data=>{
+        setTutors(data);
+    })
+  }, [category]);
 
     return (
-        <div>
+        <div className="grid grid-cols-3 gap-3">
            {
             tutors.map(tutor=> <div className="flex gap-4" key={tutor._id}>
-                <img className="h-14 w-14" src={tutor.image} alt="" />
+                <img className="h-14 w-14 rounded-2xl" src={tutor.image} alt="" />
+                <div>
                 <p>{tutor.displayName}</p>
                 <p>{tutor.language}</p>
+                </div>
                 <p>{tutor.review}</p>
-                <button><Link>Details</Link></button>
+                <button><Link to={`/tutor/${tutor._id}`}>Details</Link></button>
             </div>)
            }
         </div>

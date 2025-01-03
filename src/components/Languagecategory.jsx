@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Languagecategory = () => {
     const [categories, setCategories] = useState([]);
     useEffect(()=>{
-        fetch("http://localhost:5000/tutorials")
+        fetch("https://tutor-booking-server-ten.vercel.app/tutorials")
         .then(res=> res.json())
         .then(data=>setCategories(data));
     },[])

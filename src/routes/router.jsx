@@ -59,6 +59,17 @@ const router = createBrowserRouter([
           element: <Findturtors />
         },
         {
+          path: '/tutor/:id',
+          element: <Privaterouter>
+            <TutorDetails></TutorDetails>
+          </Privaterouter>,
+           loader: async ({ params }) => {
+            const response = await fetch(`https://tutor-booking-server-ten.vercel.app/tutor/${params.id}`);
+            const tutor = await response.json();
+            return tutor;  
+        }
+        },
+        {
             path: "register",
             element: <Register></Register>
         },

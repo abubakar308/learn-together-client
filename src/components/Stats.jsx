@@ -3,7 +3,7 @@
 const Stats = () => {
 
     return (
-        <div className="grid md:grid-cols-4">
+        <div className="grid md:grid-cols-4 my-5">
             <div>
                 <h2 className="text-5xl font-bold">0</h2>
                 <p>Experienced tutors</p>

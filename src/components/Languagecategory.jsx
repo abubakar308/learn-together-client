@@ -6,18 +6,18 @@ import { Link } from "react-router-dom";
 const Languagecategory = () => {
     const [categories, setCategories] = useState([]);
     useEffect(()=>{
-        fetch("https://tutor-booking-server-ten.vercel.app/tutorials")
+        fetch(`${import.meta.env.VITE_API_URL}/category`)
         .then(res=> res.json())
         .then(data=>setCategories(data));
     },[])
     return (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
            {
-            categories.map(category=> <Link to={`category/${category.name}`} key={category._id} className="flex justify-between border rounded-xl p-5 items-center">
+            categories.map(category=> <Link to={`tutor/${category.category}`} key={category._id} className="flex justify-between border rounded-xl p-5 items-center">
             <img className="w-12 h-12" src={category.icon} alt="" />
             <div>
             <h3 className="text-3xl font-bold">{category.name}</h3>
-            <p>{category.teachers}</p>
+            <p>{category.teachers} teachers</p>
             </div>
             <FcNext />
             </Link>)

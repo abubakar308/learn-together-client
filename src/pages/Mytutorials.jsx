@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { Authcontext } from "../authprovider/Authprovider";
+import { Link } from "react-router-dom";
 
 const Mytutorials = () => {
     const [tutorials, setTutorials] = useState([]);
     const {user} = useContext(Authcontext);
-    console.log(tutorials)
     useEffect(()=>{
-        fetch(`https://tutor-booking-server-ten.vercel.app/mytutorials?email=${user.email}`)
+        fetch(`${import.meta.env.VITE_API_URL}/mytutorials?email=${user.email}`)
         .then(res=>res.json())
         .then(data=>{
             setTutorials(data);
@@ -15,7 +15,7 @@ const Mytutorials = () => {
 
     const handleDelete = _id =>{
         console.log(_id);
-        fetch(`/mytutorial/${_id}`,{
+        fetch(`${import.meta.env.VITE_API_URL}/mytutorials/${_id}`,{
             method: 'DELETE'
         })
         .then(res=>res.json())
@@ -34,7 +34,7 @@ const Mytutorials = () => {
                 <p>{tutor.price}</p>
                 <p>{tutor.description}</p>
                 <p>{tutor.review}</p>
-                <button>Update</button>
+                <button><Link to={`/tutorial/${tutor._id}`}>Update</Link></button>
                 <button onClick={()=> handleDelete(tutor._id)}>delete</button>
             </div>)
            }

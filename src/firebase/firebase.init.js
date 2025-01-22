@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCjGv2Qh7IPvT4q0roSnPu1fCxxt7fqTvk",
-  authDomain: "online-tutor-booking-pla-5a98e.firebaseapp.com",
-  projectId: "online-tutor-booking-pla-5a98e",
-  storageBucket: "online-tutor-booking-pla-5a98e.firebasestorage.app",
-  messagingSenderId: "718892576845",
-  appId: "1:718892576845:web:00324417028da6c0e8ac04"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase

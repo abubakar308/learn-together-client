@@ -1,18 +1,16 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Findturtors = () => {
     const [tutors, setTutors] = useState([]);
-    const {category} = useParams();
 
-     console.log(category);
   useEffect(() => {
-    fetch("https://tutor-booking-server-iembzkpnh.vercel.app/tutors")
+    fetch(`${import.meta.env.VITE_API_URL}/tutors`)
     .then(res=>res.json())
     .then(data=>{
         setTutors(data);
     })
-  }, [category]);
+  }, []);
 
     return (
         <div className="grid grid-cols-3 gap-3">
@@ -24,7 +22,7 @@ const Findturtors = () => {
                 <p>{tutor.language}</p>
                 </div>
                 <p>{tutor.review}</p>
-                <button><Link to={`/tutor/${tutor._id}`}>Details</Link></button>
+                <button><Link to={`/findtutors/${tutor._id}`}>Details</Link></button>
             </div>)
            }
         </div>

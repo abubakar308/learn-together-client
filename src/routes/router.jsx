@@ -12,6 +12,7 @@ import Mybookedtutor from "../pages/Mybookedtutor";
 import Mytutorials from "../pages/Mytutorials";
 import Error from "../components/Error";
 import Privaterouter from "./Privaterouter";
+import Updatetutorial from "../pages/Updatetutorial";
 
 const router = createBrowserRouter([
   {
@@ -32,12 +33,12 @@ const router = createBrowserRouter([
               <Mybookedtutor></Mybookedtutor>
             </Privaterouter>
          },
-        {
-            path: "tutordetails",
-            element: <Privaterouter>
-              <TutorDetails></TutorDetails>
-            </Privaterouter>
-        },
+        // {
+        //     path: "tutordetails",
+        //     element: <Privaterouter>
+        //       <TutorDetails></TutorDetails>
+        //     </Privaterouter>
+        // },
         {
             path: "addtutorials",
             element: <Privaterouter>
@@ -50,24 +51,19 @@ const router = createBrowserRouter([
               <Mytutorials></Mytutorials>
             </Privaterouter>
          },
-         {
-          path: "category",
-          element: <Findturtors></Findturtors>
-        },
         {
-          path: "/category/:language",
+          path: "/tutor/:category",
           element: <Findturtors />
         },
         {
-          path: '/tutor/:id',
+          path:'tutorial/:id',
+          element: <Updatetutorial></Updatetutorial>
+        },
+        {
+          path: '/findtutors/:id',
           element: <Privaterouter>
             <TutorDetails></TutorDetails>
-          </Privaterouter>,
-           loader: async ({ params }) => {
-            const response = await fetch(`https://tutor-booking-server-ten.vercel.app/tutor/${params.id}`);
-            const tutor = await response.json();
-            return tutor;  
-        }
+          </Privaterouter>
         },
         {
             path: "register",

@@ -1,47 +1,48 @@
 import { useContext, useState } from "react";
 import { Authcontext } from "../authprovider/Authprovider";
+import { useParams } from "react-router-dom";
 
-const Addtutorials = () => {
+const Updatetutorial = () => {
     const {user,} = useContext(Authcontext)
 
-    console.log(user)
-    const [formData, setFormData] = useState({
-      displayName: user?.displayName || "",
-        email: user?.email || "",
-        image: "",
-        category: "",
-        price: "",
-        description: "",
-        review: 0,
-      });
+    const {id} = useParams();
     
-      const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-      };
-    
-      const handleSubmit = (e) => {
-        e.preventDefault();
-       
-        fetch(`${import.meta.env.VITE_API_URL}/addtutorials`,{
-          method: "POST",
-          headers: {
-            'content-type': 'application/json'
-          },
-          body: JSON.stringify(formData)
-        })
-        .then(res=>res.json())
-        .then(data=>{
-          console.log(data)
-        })
-      
-      };
-
+        const [formData, setFormData] = useState({
+          displayName: user?.displayName || "",
+            email: user?.email || "",
+            image: "",
+            category: "",
+            price: "",
+            description: "",
+            review: 0,
+          });
+        
+          const handleChange = (e) => {
+            const { name, value } = e.target;
+            setFormData({ ...formData, [name]: value });
+          };
+        
+          const handleSubmit = (e) => {
+            e.preventDefault();
+           
+            fetch(`${import.meta.env.VITE_API_URL}/mytutorials/${id}`,{
+              method: "PATCH",
+              headers: {
+                'content-type': 'application/json'
+              },
+              body: JSON.stringify(formData)
+            })
+            .then(res=>res.json())
+            .then(data=>{
+              console.log(data)
+            })
+          
+          };
     return (
-      <div className="flex justify-center py-12 bg-gray-50">
+        <div className="flex justify-center py-12 bg-gray-50">
       <div className="card bg-white w-full max-w-md shadow-xl rounded-lg p-8">
         <form onSubmit={handleSubmit} className="space-y-6">
-          <h2 className="text-2xl font-semibold text-center text-gray-800">Add A Tutorial</h2>
+          <h2 className="text-2xl font-semibold text-center text-gray-800">Tutor Profile</h2>
     
           {/* Display Name */}
           <div>
@@ -134,7 +135,7 @@ const Addtutorials = () => {
               type="submit"
               className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              Submit
+              Update
             </button>
           </div>
         </form>
@@ -143,4 +144,4 @@ const Addtutorials = () => {
     );
 };
 
-export default Addtutorials;
+export default Updatetutorial;

@@ -12,7 +12,6 @@ const TutorDetails = () => {
           fetch(`${import.meta.env.VITE_API_URL}/tutors/${id}`)
           .then(res=>res.json())
           .then(data=>{
-            console.log(data)
               setTutorial(data)
           })
       },[id]);
@@ -24,15 +23,28 @@ const TutorDetails = () => {
   
     const handleBook = () => {
       const bookingData = {
-        // tutorId: tutor._id,
-        // image: tutor.image,
-        // language: tutor.language,
-        // price: tutor.price,
-        // tutorEmail: tutor.email,
-        // email: user.email,
+        tutorId: tutorial?._id,
+        image: tutorial?.image,
+        language: tutorial?.category,
+        price: tutorial?.price,
+        tutorEmail: tutorial?.email,
+        userEmail: user?.email,
       };
       console.log("Booking Data:", bookingData);
-      navigate("/my-booked-tutors");
+      // navigate("/my-booked-tutors");
+
+      fetch(`${import.meta.env.VITE_API_URL}/bookedtutors`,{
+        method: "POST",
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(bookingData)
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        console.log(data)
+      })
+
     };
   
     return (

@@ -1,11 +1,14 @@
 import { useContext, useState } from "react";
 import { Authcontext } from "../authprovider/Authprovider";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Updatetutorial = () => {
     const {user,} = useContext(Authcontext)
 
     const {id} = useParams();
+    
+    const navigate = useNavigate();
     
         const [formData, setFormData] = useState({
           displayName: user?.displayName || "",
@@ -32,9 +35,21 @@ const Updatetutorial = () => {
               },
               body: JSON.stringify(formData)
             })
-            .then(res=>res.json())
-            .then(data=>{
-              console.log(data)
+            .then(res=>{
+              if (res.ok) {
+                Swal.fire({
+                    title: "Product updated successful",
+                    icon: "success",
+                    draggable: true
+                  });
+                  navigate('/mytutorials')
+            } else {
+                Swal.fire({
+                    title: "Sumthing is wrong",
+                    icon: "error",
+                    draggable: true
+                  });
+            }
             })
           
           };
@@ -61,7 +76,6 @@ const Updatetutorial = () => {
             <label htmlFor="email" className="block text-gray-700 font-medium">Email</label>
             <input
               type="email"
-              id="email"
               value={user.email}
               readOnly
               className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"

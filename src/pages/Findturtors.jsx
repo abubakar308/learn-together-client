@@ -1,19 +1,15 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const Findturtors = () => {
-    const [tutors, setTutors] = useState([]);
+    // const [tutors, setTutors] = useState([data]);
 
-  useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/tutors`)
-    .then(res=>res.json())
-    .then(data=>{
-        setTutors(data);
-    })
-  }, []);
+const  {tutors, category }= useLoaderData();
 
     return (
-        <div className="grid grid-cols-3 gap-3">
+      <div>
+        <h2 className="text-2xl text-center py-3">{category? `${category} Tutor` : 'All Tutor'}</h2>
+
+          <div className="grid grid-cols-3 gap-3">
            {
             tutors.map(tutor=> <div className="flex gap-4" key={tutor._id}>
                 <img className="h-14 w-14 rounded-2xl" src={tutor.image} alt="" />
@@ -26,6 +22,7 @@ const Findturtors = () => {
             </div>)
            }
         </div>
+      </div>
     );
 };
 

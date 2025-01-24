@@ -1,10 +1,12 @@
 import { useContext, useState } from "react";
 import { Authcontext } from "../authprovider/Authprovider";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Addtutorials = () => {
     const {user,} = useContext(Authcontext)
+  const navigate = useNavigate();
 
-    console.log(user)
     const [formData, setFormData] = useState({
       displayName: user?.displayName || "",
         email: user?.email || "",
@@ -30,10 +32,24 @@ const Addtutorials = () => {
           },
           body: JSON.stringify(formData)
         })
-        .then(res=>res.json())
-        .then(data=>{
-          console.log(data)
+        .then(res=>{
+          
+        if (res.ok) {
+          Swal.fire({
+              title: "Product added successful",
+              icon: "success",
+              draggable: true
+            });
+            navigate('/mytutorials')
+      } else {
+          Swal.fire({
+              title: "Sumthing is wrong",
+              icon: "error",
+              draggable: true
+            });
+      }
         })
+        
       
       };
 

@@ -25,7 +25,14 @@ const router = createBrowserRouter([
         },
         {
             path: "findtutors",
-            element: <Findturtors></Findturtors>
+            element: <Findturtors></Findturtors>,
+            loader: async () => { 
+              const response = await fetch(
+                `${import.meta.env.VITE_API_URL}/tutors`
+              );
+              const tutors = await response.json(); 
+              return { tutors }; 
+            }
         },
         {
             path: "mybookedtutors",
@@ -33,12 +40,6 @@ const router = createBrowserRouter([
               <Mybookedtutor></Mybookedtutor>
             </Privaterouter>
          },
-        // {
-        //     path: "tutordetails",
-        //     element: <Privaterouter>
-        //       <TutorDetails></TutorDetails>
-        //     </Privaterouter>
-        // },
         {
             path: "addtutorials",
             element: <Privaterouter>
@@ -46,18 +47,28 @@ const router = createBrowserRouter([
             </Privaterouter>       
          },
          {
-            path: "mytutirials",
+            path: "mytutorials",
             element: <Privaterouter>
               <Mytutorials></Mytutorials>
             </Privaterouter>
          },
         {
           path: "/tutor/:category",
-          element: <Findturtors />
+          element: <Findturtors />,
+          loader: async ({ params }) => {
+            const { category } = params; 
+            const response = await fetch(
+              `${import.meta.env.VITE_API_URL}/tutor/${category}`
+            );
+            const tutors = await response.json(); 
+            return { tutors, category }; 
+          }
         },
         {
           path:'tutorial/:id',
-          element: <Updatetutorial></Updatetutorial>
+          element: <Privaterouter>
+            <Updatetutorial></Updatetutorial>
+          </Privaterouter>
         },
         {
           path: '/findtutors/:id',

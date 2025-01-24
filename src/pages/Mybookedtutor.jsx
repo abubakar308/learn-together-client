@@ -8,7 +8,7 @@ const Mybookedtutor = () => {
     console.log(tutors);
         const {user} = useContext(Authcontext);
         useEffect(()=>{
-            fetch(`${import.meta.env.VITE_API_URL}//bookedtutors?useEmail=${user.email}`)
+            fetch(`${import.meta.env.VITE_API_URL}/bookedtutors/${user.email}`)
             .then(res=>res.json())
             .then(data=>{
                 console.log(data)

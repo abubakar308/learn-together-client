@@ -2,6 +2,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Authcontext } from "../authprovider/Authprovider";
+import Swal from "sweetalert2";
 
 const TutorDetails = () => {
   
@@ -30,9 +31,12 @@ const TutorDetails = () => {
         tutorEmail: tutorial?.email,
         userEmail: user?.email,
       };
-      console.log("Booking Data:", bookingData);
-      // navigate("/my-booked-tutors");
-
+      if(user.email === bookingData.tutorEmail) return  Swal.fire({
+                          title: "Acion failed",
+                          icon: "error",
+                          draggable: true
+                        });
+  
       fetch(`${import.meta.env.VITE_API_URL}/bookedtutors`,{
         method: "POST",
         headers: {
@@ -40,10 +44,15 @@ const TutorDetails = () => {
         },
         body: JSON.stringify(bookingData)
       })
-      .then(res=>res.json())
-      .then(data=>{
-        console.log(data)
-      })
+       Swal.fire({
+                  title: "Product updated successful",
+                  icon: "success",
+                  draggable: true
+                 });
+      // .then(res=>res.json())
+      // .then(data=>{
+      //   console.log(data)
+      // })
 
     };
   

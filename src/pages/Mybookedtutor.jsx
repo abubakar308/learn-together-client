@@ -6,6 +6,7 @@ const Mybookedtutor = () => {
 
     const [tutors, setTutors] = useState([]);
     console.log(tutors);
+
         const {user} = useContext(Authcontext);
         useEffect(()=>{
             fetch(`${import.meta.env.VITE_API_URL}/bookedtutors/${user.email}`)
@@ -15,6 +16,21 @@ const Mybookedtutor = () => {
                 setTutors(data)
             })
         },[user.email]);
+
+        const handleReview = (tutorId) =>{
+          console.log(tutorId)
+          fetch(`${import.meta.env.VITE_API_URL}/bookedtutor/${ tutorId}`,{
+            method: "PATCH",
+            headers: {
+              'content-type': 'application/json'
+            },
+            body: JSON.stringify({   
+              tutorId: tutorId
+            })
+          })
+          .then(res=>res.json())
+          .then(data=>console.log(data))
+        }
     return (
         <div className="p-6">
         <h1 className="text-3xl font-bold text-center mb-6">
@@ -57,7 +73,7 @@ const Mybookedtutor = () => {
   
                 {/* Review Button */}
                 <button
-                //   onClick={() => handleReview(tutor._id)}
+                  onClick={() => handleReview(tutor.tutorId)}
                   className="mt-4 w-full bg-blue-600 text-white py-2 px-4 rounded-md font-medium hover:bg-blue-700"
                 >
                   Leave Review

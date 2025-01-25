@@ -50,7 +50,8 @@ const Navbar = () => {
         <div className="flex items-center navbar-end gap-3">
             {
                 user?.email && 
-                 <div>   <img title={user.displayName} className="rounded-full w-12 h-12" src={user?.photoURL} alt={user?.displayName} />
+                 <div className="dropdown"><img tabIndex={0} role="button" className="rounded-full w-12 h-12" src={user?.photoURL} alt={user?.displayName} />
+                <p  tabIndex={0} className="dropdown-content">{user?.displayName}</p>
                  </div>
             }
            {

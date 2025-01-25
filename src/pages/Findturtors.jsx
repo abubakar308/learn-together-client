@@ -7,7 +7,7 @@ const  {tutors, category }= useLoaderData();
 
     return (
       <div>
-        <h2 className="text-2xl text-center py-3">{category? `${category} Tutor` : 'All Tutor'}</h2>
+        <h2 className="text-2xl text-center py-3">{category? `${category} Tutor` : 'All Tutor'}: {tutors?.length}</h2>
 
           <div className="grid grid-cols-3 gap-3">
            {

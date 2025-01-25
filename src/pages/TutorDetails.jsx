@@ -44,15 +44,14 @@ const TutorDetails = () => {
         },
         body: JSON.stringify(bookingData)
       })
-       Swal.fire({
-                  title: "Product updated successful",
-                  icon: "success",
-                  draggable: true
-                 });
-      // .then(res=>res.json())
-      // .then(data=>{
-      //   console.log(data)
-      // })
+      .then(res=>res.json())
+      .then(data=>{
+        Swal.fire({
+          title: `${bookingData?.language} booked successful`,
+          icon: "success",
+          draggable: true
+         });
+      })
 
     };
   

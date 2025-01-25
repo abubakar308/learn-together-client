@@ -15,9 +15,9 @@ const  {tutors, category }= useLoaderData();
                 <img className="h-14 w-14 rounded-2xl" src={tutor.image} alt="" />
                 <div>
                 <p>{tutor.displayName}</p>
-                <p>{tutor.language}</p>
+                <p>{tutor?.category}</p>
                 </div>
-                <p>{tutor.review}</p>
+                <p>{tutor?.review}</p>
                 <button><Link to={`/findtutors/${tutor._id}`}>Details</Link></button>
             </div>)
            }

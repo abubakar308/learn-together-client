@@ -47,7 +47,7 @@ const TutorDetails = () => {
       .then(res=>res.json())
       .then(data=>{
         Swal.fire({
-          title: `${bookingData?.language} booked successful`,
+          title: `${bookingData?.language} tutor booked successful`,
           icon: "success",
           draggable: true
          });

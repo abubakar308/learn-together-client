@@ -1,8 +1,18 @@
-# React + Vite
+# Learn Together - Online Tutor Booking Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Learn Together is an online platform designed to connect users with tutors across various languages and subjects. It aims to simplify the tutor hiring process and make education more accessible globally.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Browse Categories**: Explore different categories such as languages, subjects, etc.
+- **Book Tutors**: Schedule sessions with tutors that match your learning needs.
+- **Manage Bookings**: Easily view and manage your upcoming and past sessions.
+- **Rate Tutors**: After each session, students can review and rate their tutors.
+
+## Tech Stack
+
+- **Frontend**: React.js, Tailwind CSS, DaisyUI
+- **Backend**: Node.js, Express.js
+- **Authentication**: Firebase Authentication
+- **Database**: MongoDB
+

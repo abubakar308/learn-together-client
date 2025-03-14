@@ -4,19 +4,19 @@ import Navbar from "../components/Navbar";
 
 const Mainlayout = () => {
     return (
-        <div>
-        <header className="">
-            <Navbar></Navbar>
+        <div className="flex flex-col min-h-screen">
+        <header>
+          <Navbar />
         </header>
-
-        <main className="w-11/12 mx-auto">
-        <Outlet></Outlet>
+      
+        <main className="flex-grow">
+          <Outlet />
         </main>
-
+      
         <footer>
-        <Footer></Footer>
+          <Footer />
         </footer>
-        </div>
+      </div>
     );
 };
 

@@ -11,18 +11,34 @@ const Languagecategory = () => {
         .then(data=>setCategories(data));
     },[])
     return (
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-           {
-            categories.map(category=> <Link to={`tutor/${category.category}`} key={category._id} className="flex justify-between border rounded-xl p-5 items-center">
-            <img className="w-12 h-12" src={category.icon} alt="" />
-            <div>
-            <h3 className="text-3xl font-bold">{category.name}</h3>
-            <p>{category.teachers} teachers</p>
-            </div>
-            <FcNext />
-            </Link>)
-           }
+        <div className="container mx-auto p-5">
+        <h2 className="text-4xl text-center font-bold mb-8 text-primary">Language Categories</h2>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {
+            categories.map(category => (
+              <Link 
+                to={`tutor/${category.category}`} 
+                key={category._id} 
+                className="flex justify-between items-center bg-white border border-gray-200 rounded-xl p-5 hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+              >
+                <div className="flex items-center space-x-4">
+                  <img 
+                    className="w-16 h-16 object-cover rounded-full border border-gray-200" 
+                    src={category.icon} 
+                    alt={`${category.name} icon`} 
+                  />
+                  <div className="text-left">
+                    <h3 className="text-2xl font-semibold text-primary">{category.name}</h3>
+                    <p className="text-gray-500">{category.teachers} teachers</p>
+                  </div>
+                </div>
+                <FcNext className="text-2xl text-secondary" />
+              </Link>
+            ))
+          }
         </div>
+      </div>
     );
 };
 

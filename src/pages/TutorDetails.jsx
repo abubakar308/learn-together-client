@@ -56,47 +56,48 @@ const TutorDetails = () => {
     };
   
     return (
-      <div className="">
-      <div className="max-w-md mx-auto p-3 bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
-        <img
-          src={tutorial?.image}
-          alt={tutorial?.displayName}
-          className="w-full h-full object-cover"
-        />
-        <div className="p-6">
-          {/* Tutor's Name */}
-          <h2 className="text-2xl font-semibold text-gray-800">{tutorial?.displayName}</h2>
-    
-          {/* Language */}
-          <p className="text-gray-600 mt-2">
-            <span className="font-medium text-gray-700">Language:</span> {tutorial?.category}
-          </p>
-    
-          {/* Description */}
-          <p className="text-gray-600 mt-2">
-            <span className="font-medium text-gray-700">Description:</span> {tutorial?.description}
-          </p>
-    
-          {/* Price */}
-          <p className="text-gray-600 mt-2">
-            <span className="font-medium text-gray-700">Price:</span> BDT {tutorial?.price}
-          </p>
-    
-          {/* Review */}
-          <p className="text-gray-600 mt-2">
-            <span className="font-medium text-gray-700">Review:</span> {tutorial?.review} ★
-          </p>
-    
-          {/* Book Button */}
-          <button
-            onClick={handleBook}
-            className="mt-4 w-full bg-blue-600 text-white py-2 px-4 rounded-md text-center font-medium hover:bg-blue-700"
-          >
-            Book Now
-          </button>
-        </div>
-      </div>
+      <div className="p-6 bg-background">
+  <div className="max-w-md mx-auto p-3 bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
+    <img
+      src={tutorial?.image}
+      alt={tutorial?.displayName}
+      className="w-full h-48 object-cover"
+    />
+    <div className="p-6">
+      {/* Tutor's Name */}
+      <h2 className="text-2xl font-semibold text-gray-800">{tutorial?.displayName}</h2>
+
+      {/* Language */}
+      <p className="text-gray-600 mt-2">
+        <span className="font-medium text-primary">Language:</span> {tutorial?.category}
+      </p>
+
+      {/* Description */}
+      <p className="text-gray-600 mt-2">
+        <span className="font-medium text-primary">Description:</span> {tutorial?.description}
+      </p>
+
+      {/* Price */}
+      <p className="text-gray-600 mt-2">
+        <span className="font-medium text-primary">Price:</span> BDT {tutorial?.price}
+      </p>
+
+      {/* Review */}
+      <p className="text-gray-600 mt-2">
+        <span className="font-medium text-primary">Review:</span> {tutorial?.review} ★
+      </p>
+
+      {/* Book Button */}
+      <button
+        onClick={handleBook}
+        className="mt-4 w-full bg-primary text-white py-2 px-4 rounded-md text-center font-medium hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary"
+      >
+        Book Now
+      </button>
     </div>
+  </div>
+</div>
+
     );
 };
 

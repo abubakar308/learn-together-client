@@ -54,7 +54,7 @@ const Updatetutorial = () => {
           
           };
     return (
-        <div className="flex justify-center py-12 bg-gray-50">
+      <div className="flex justify-center py-12 bg-background">
       <div className="card bg-white w-full max-w-md shadow-xl rounded-lg p-8">
         <form onSubmit={handleSubmit} className="space-y-6">
           <h2 className="text-2xl font-semibold text-center text-gray-800">Tutor Profile</h2>
@@ -67,7 +67,7 @@ const Updatetutorial = () => {
               id="displayName"
               value={user.displayName}
               readOnly
-              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
     
@@ -78,7 +78,7 @@ const Updatetutorial = () => {
               type="email"
               value={user.email}
               readOnly
-              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
     
@@ -91,7 +91,7 @@ const Updatetutorial = () => {
               placeholder="Enter image URL"
               onChange={handleChange}
               required
-              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
     
@@ -103,7 +103,7 @@ const Updatetutorial = () => {
               value={formData.category}
               onChange={handleChange}
               required
-              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
             >
               <option value="">Select language</option>
               <option value="english">English</option>
@@ -127,7 +127,7 @@ const Updatetutorial = () => {
               placeholder="Price"
               onChange={handleChange}
               required
-              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
     
@@ -139,7 +139,7 @@ const Updatetutorial = () => {
               placeholder="Describe your services"
               onChange={handleChange}
               required
-              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
             ></textarea>
           </div>
     
@@ -147,7 +147,7 @@ const Updatetutorial = () => {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary"
             >
               Update
             </button>
@@ -155,6 +155,7 @@ const Updatetutorial = () => {
         </form>
       </div>
     </div>
+    
     );
 };
 

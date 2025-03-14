@@ -3,13 +3,13 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <footer className="py-8">
+        <footer className="py-8 bg-background text-primary">
             {/* Footer Content */}
             <div className="container mx-auto px-4 md:px-8 lg:px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
                 {/* Logo and Tagline */}
                 <div>
                     <h2 className="text-xl font-bold">Learn Together</h2>
-                    <p className="mt-2 text-gray-400">
+                    <p className="mt-2">
                         Empowering learning, one connection at a time.
                     </p>
                 </div>
@@ -39,14 +39,14 @@ const Footer = () => {
                 {/* Contact Info */}
                 <div>
                     <h3 className="text-lg font-semibold mb-3">Contact Me</h3>
-                    <p className="text-gray-400">Email: mdabubakarsiddique789@gmail.com</p>
-                    <p className="text-gray-400">Location: Bangladesh</p>
+                    <p>Email: mdabubakarsiddique789@gmail.com</p>
+                    <p>Location: Bangladesh</p>
                 </div>
             </div>
 
             {/* Bottom Bar */}
             <div className="border-t border-gray-800 mt-8 pt-4 text-center text-gray-500">
-                <p>&copy; 2024 Learn Together | Designed by Abu Bakr Siddique</p>
+                <p>&copy; 2024 Learn Together | Designed by Md Abu Bakar Siddique</p>
             </div>
         </footer>
     );

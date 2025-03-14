@@ -9,20 +9,21 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
     return (
-      <nav className="fixed top-0 left-0 w-full bg-white bg-opacity-60 backdrop-blur-md shadow-md z-50 dark:bg-gray-900 dark:bg-opacity-80">
+      <nav className="fixed top-0 left-0 w-full bg-primary bg-opacity-60 backdrop-blur-md shadow-md z-50 dark:bg-gray-900 dark:bg-opacity-80">
       <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
         {/* Logo */}
-        <NavLink to="/" className="text-2xl font-bold">
-          <img className="h-12 w-12" src={logo} alt="Learn Together" />
-        </NavLink>
+        <div className="items-center flex font-bold">
+          <img className="h-14 w-16" src={logo} alt="Learn Together" />
+          <span className="text-xl">Learn Together</span>
+        </div>
 
         {/* Desktop Menu */}
         <ul className="hidden lg:flex space-x-6 text-lg font-medium">
-          <li><NavLink to="/" className="hover:text-blue-500">Home</NavLink></li>
-          <li><NavLink to="/findtutors" className="hover:text-blue-500">Find Tutors</NavLink></li>
-          <li><NavLink to="/addtutorials" className="hover:text-blue-500">Add Tutorials</NavLink></li>
-          <li><NavLink to="/mytutorials" className="hover:text-blue-500">My Tutorials</NavLink></li>
-          <li><NavLink to="/mybookedtutors" className="hover:text-blue-500">My Booked Tutors</NavLink></li>
+          <li><NavLink to="/" className="hover:text-secondary">Home</NavLink></li>
+          <li><NavLink to="/findtutors" className="hover:text-secondary">Find Tutors</NavLink></li>
+          <li><NavLink to="/addtutorials" className="hover:text-secondary">Add Tutorials</NavLink></li>
+          <li><NavLink to="/mytutorials" className="hover:text-secondary">My Tutorials</NavLink></li>
+          <li><NavLink to="/mybookedtutors" className="hover:text-secondary">My Booked Tutors</NavLink></li>
         </ul>
 
         {/* User Section */}

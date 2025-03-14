@@ -44,24 +44,49 @@ const Mytutorials = () => {
 
     }
     return (
-        <div>
-           {
-            tutorials.map(tutor=> <div className="flex items-center justify-start gap-5 p-3" key={tutor._id}>
-                <img className="w-20 h-20 rounded-xl" src={tutor.image} alt="" />
-               <div>
-               <p>Name: {tutor.displayName}</p>
-               <p>Languge: {tutor.category}</p>
-               </div>
-              <div>
-              <p>Price: {tutor.price}</p>
-              <p>Review: {tutor.review}</p>
-              </div>
-                <p>Description: <br /> {tutor.description}</p>
-                <button className="text-3xl"><Link to={`/tutorial/${tutor._id}`}><FaEdit></FaEdit></Link></button>
-                <button className="text-red-600 text-3xl" onClick={()=> handleDelete(tutor._id)}><MdDelete></MdDelete></button>
-            </div>)
-           }
-        </div>
+        <div className="w-11/12 mx-auto mt-20">
+        {tutorials.map(tutor => (
+          <div className="flex items-center justify-between gap-5 p-4 border-b border-gray-300" key={tutor._id}>
+            {/* Tutor Image */}
+            <img className="w-20 h-20 rounded-xl object-cover" src={tutor.image} alt={tutor.displayName} />
+      
+            {/* Tutor Details */}
+            <div className="flex-1">
+              <p className="font-semibold text-gray-800">Name: {tutor.displayName}</p>
+              <p className="text-gray-600">Language: {tutor.category}</p>
+            </div>
+      
+            {/* Price and Review */}
+            <div className="flex flex-col items-end">
+              <p className="font-semibold text-gray-800">Price: ${tutor.price}</p>
+              <p className="text-gray-600">Review: {tutor.review}</p>
+            </div>
+      
+            {/* Description */}
+            <div className="flex-1">
+              <p className="text-gray-600">Description:</p>
+              <p className="text-sm text-gray-700">{tutor.description}</p>
+            </div>
+      
+            {/* Edit and Delete Buttons */}
+            <div className="flex gap-4">
+              <Link 
+                to={`/tutorial/${tutor._id}`} 
+                className="text-primary text-2xl hover:text-primary-dark"
+              >
+                <FaEdit />
+              </Link>
+              <button 
+                className="text-secondary text-2xl hover:text-secondary-dark"
+                onClick={() => handleDelete(tutor._id)}
+              >
+                <MdDelete />
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+      
     );
 };
 

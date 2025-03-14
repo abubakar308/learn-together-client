@@ -48,24 +48,28 @@ const Stats = () => {
     );
 
     return (
-        <div className="grid md:grid-cols-4 my-5">
-            <div>
-                <h2 className="text-5xl font-bold">{uniqueTutors.length}+</h2>
-                <p>Experienced tutors</p>
-            </div>
-            <div>
-            <h2 className="text-5xl font-bold">{totalReviews}+</h2>
-            <p>Total Review</p>
-            </div>
-            <div>
-            <h2 className="text-5xl font-bold">{categories?.length}+</h2>
-            <p>Total Languages</p>
-            </div>
-            <div>
-            <h2 className="text-5xl font-bold">{totalUser.length}+</h2>
-            <p>Total users</p>
-            </div>
-        </div>
+      <div className="w-11/12 mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 my-10 px-4 text-center">
+      <div className="bg-background p-6 rounded-lg shadow-lg hover:scale-105 transition-transform">
+        <h2 className="text-4xl md:text-5xl font-bold text-primary">{uniqueTutors.length}+</h2>
+        <p className="text-gray-700">Experienced Tutors</p>
+      </div>
+      
+      <div className="bg-background p-6 rounded-lg shadow-lg hover:scale-105 transition-transform">
+        <h2 className="text-4xl md:text-5xl font-bold text-secondary">{totalReviews}+</h2>
+        <p className="text-gray-700">Total Reviews</p>
+      </div>
+      
+      <div className="bg-background p-6 rounded-lg shadow-lg hover:scale-105 transition-transform">
+        <h2 className="text-4xl md:text-5xl font-bold text-accent">{categories?.length}+</h2>
+        <p className="text-gray-700">Total Languages</p>
+      </div>
+      
+      <div className="bg-background p-6 rounded-lg shadow-lg hover:scale-105 transition-transform">
+        <h2 className="text-4xl md:text-5xl font-bold text-primary">{totalUser.length}+</h2>
+        <p className="text-gray-700">Total Users</p>
+      </div>
+    </div>
+    
     );
 };
 

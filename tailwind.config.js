@@ -6,6 +6,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: "class", // Ensure this is set properly
   theme: {
     extend: {
       colors: {
@@ -13,6 +14,7 @@ export default {
         secondary: '#F59E0B',     // Amber (Secondary)
         accent: '#10B981',        // Emerald Green (Accent)
         background: '#F3F4F6',    // Light Gray (Background)
+         darkBackground: '#333'
       },
     },
   },

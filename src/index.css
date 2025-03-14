@@ -5,3 +5,15 @@
 a.active{
     background-color: aqua;
 }
+
+/* Dark theme styles */
+.dark {
+    background-color: #333;
+    color: white;
+  }
+  
+  /* Light theme styles */
+  .light {
+    background-color: #f3f4f6;
+    color: black;
+  }

@@ -43,34 +43,53 @@ const Login = () => {
     });
     };
     return (
-        <div className="flex justify-center">
-            <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-           <form onSubmit={handleLogin} className="card-body">
-        <h3 className="text-2xl">Login You Account</h3>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text">Email</span>
-        </label>
-        <input type="email"  placeholder="email" name="email" className="input input-bordered" required />
+      <div className="flex pt-20 justify-center">
+      <div className="card w-full max-w-sm shrink-0 shadow-2xl border border-gray-300 rounded-lg">
+        <form onSubmit={handleLogin} className="card-body p-6">
+          <h3 className="text-2xl text-center font-semibold text-primary">Login to Your Account</h3>
+          
+          <div className="form-control">
+            <label className="label text-secondary">
+              <span>Email</span>
+            </label>
+            <input 
+  type="email" 
+  placeholder="Email" 
+  name="email" 
+  className="input input-bordered bg-white text-gray-700 focus:ring-primary 
+             dark:bg-gray-900 dark:text-white dark:border-gray-600"
+  required 
+/>
+          </div>
+          
+          <div className="form-control relative">
+            <label className="label text-secondary">
+              <span>Password</span>
+            </label>
+            <input placeholder="Password" type={togglePass ? "text" : "password"} name="password" className="input input-bordered bg-white text-gray-700 focus:ring-primary 
+             dark:bg-gray-900 dark:text-white dark:border-gray-600" required />
+            <label className="label">
+              <span onClick={() => setTogglePass(!togglePass)} className="absolute top-[45%] right-4 text-accent">
+                {togglePass ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </label>
+          </div>
+          
+          <div className="form-control mt-6">
+            <button type="submit" className="btn bg-primary text-white hover:bg-indigo-700">Login</button>
+          </div>
+        </form>
+        
+        <button className="bg-secondary text-white btn text-xl w-full mt-4" onClick={handleGoogleSignin}>
+          <FcGoogle /> Sign in with Google
+        </button>
+        
+        <p className="text-center mt-4">
+          Don&apos;t Have An Account? <Link to="/register" className="text-accent">Register</Link>
+        </p>
       </div>
-      <div className="form-control relative">
-        <label className="label">
-          <span className="label-text">Password</span>
-        </label>
-        <input placeholder="password" type={togglePass? "text": "password"} name="password" className="input input-bordered" required />
-        <label className="label"> 
-          <span onClick={()=>setTogglePass(!togglePass)} className="absolute top-[45%] right-4"> {togglePass? <FaEyeSlash />: <FaEye />} </span>
-        </label>
-        {/* <span onClick={() => navigate("/forget-password")} className="label-text-alt link link-hover">Forgot password?</span> */}
-      </div>
-      <div className="form-control mt-6">
-        <button type="submit" className="btn btn-primary">Login</button>
-      </div>
-    </form>
-    <button className="bg-gray-400 btn text-xl" onClick={handleGoogleSignin}><FcGoogle /> Signinwith Google</button>
-    <p className="text-center"> Dont&lsquo;t Have An Account?  <Link to="/register" className="text-red-500"> Register</Link></p>
-        </div>
-        </div>
+    </div>
+    
     );
 };
 

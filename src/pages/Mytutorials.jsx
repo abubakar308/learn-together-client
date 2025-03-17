@@ -52,20 +52,20 @@ const Mytutorials = () => {
       
             {/* Tutor Details */}
             <div className="flex-1">
-              <p className="font-semibold text-gray-800">Name: {tutor.displayName}</p>
+              <p className="font-semibold">Name: {tutor.displayName}</p>
               <p className="text-gray-600">Language: {tutor.category}</p>
             </div>
       
             {/* Price and Review */}
             <div className="flex flex-col items-end">
-              <p className="font-semibold text-gray-800">Price: ${tutor.price}</p>
+              <p className="font-semibold">Price: ${tutor.price}</p>
               <p className="text-gray-600">Review: {tutor.review}</p>
             </div>
       
             {/* Description */}
             <div className="flex-1">
               <p className="text-gray-600">Description:</p>
-              <p className="text-sm text-gray-700">{tutor.description}</p>
+              <p className="text-sm">{tutor.description}</p>
             </div>
       
             {/* Edit and Delete Buttons */}

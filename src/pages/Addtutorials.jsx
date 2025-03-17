@@ -54,57 +54,57 @@ const Addtutorials = () => {
       };
 
     return (
-      <div className="flex justify-center py-12 bg-background">
-      <div className="card bg-white w-full max-w-md shadow-xl rounded-lg p-8">
+      <div className="flex justify-center py-12">
+      <div className="card w-full max-w-md shadow-xl rounded-lg p-8">
         <form onSubmit={handleSubmit} className="space-y-6">
           <h2 className="text-2xl font-semibold text-center text-primary mb-6">Add A Tutorial</h2>
     
           {/* Display Name */}
           <div>
-            <label htmlFor="displayName" className="block text-gray-700 font-medium">Name</label>
+            <label htmlFor="displayName" className="block font-medium">Name</label>
             <input
               type="text"
               id="displayName"
               value={user.displayName}
               readOnly
-              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              className="mt-2 w-full p-3 border text-black border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
     
           {/* Email */}
           <div>
-            <label htmlFor="email" className="block text-gray-700 font-medium">Email</label>
+            <label htmlFor="email" className="block font-medium">Email</label>
             <input
               type="email"
               id="email"
               value={user.email}
               readOnly
-              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              className="mt-2 w-full p-3 border text-black border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
     
           {/* Image URL */}
           <div>
-            <label htmlFor="image" className="block text-gray-700 font-medium">Image URL</label>
+            <label htmlFor="image" className="block font-medium">Image URL</label>
             <input
               type="url"
               name="image"
               placeholder="Enter image URL"
               onChange={handleChange}
               required
-              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              className="mt-2 w-full p-3 border text-black border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
     
           {/* Language Select */}
           <div>
-            <label htmlFor="category" className="block text-gray-700 font-medium">Language</label>
+            <label htmlFor="category" className="block font-medium">Language</label>
             <select
               name="category"
               value={formData.category}
               onChange={handleChange}
               required
-              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              className="mt-2 w-full p-3 border text-black border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
             >
               <option value="">Select language</option>
               <option value="english">English</option>
@@ -121,26 +121,26 @@ const Addtutorials = () => {
     
           {/* Price */}
           <div>
-            <label htmlFor="price" className="block text-gray-700 font-medium">Price</label>
+            <label htmlFor="price" className="block font-medium">Price</label>
             <input
               type="number"
               name="price"
               placeholder="Price"
               onChange={handleChange}
               required
-              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              className="mt-2 w-full text-black p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
     
           {/* Description */}
           <div>
-            <label htmlFor="description" className="block text-gray-700 font-medium">Description</label>
+            <label htmlFor="description" className="block font-medium">Description</label>
             <textarea
               name="description"
               placeholder="Describe your services"
               onChange={handleChange}
               required
-              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              className="mt-2 w-full text-black p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
             ></textarea>
           </div>
     
@@ -148,7 +148,7 @@ const Addtutorials = () => {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="w-full py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full py-3 bg-primary font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-primary"
             >
               Submit
             </button>

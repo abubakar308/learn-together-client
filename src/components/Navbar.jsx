@@ -132,7 +132,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="lg:hidden absolute top-0 left-0 w-full h-screen bg-black bg-opacity-90 flex flex-col justify-center items-center space-y-6 text-white text-xl font-semibold z-40">
+        <div onClick={() => setIsMenuOpen(false)} className="lg:hidden absolute top-0 left-0 w-full h-screen bg-black bg-opacity-90 flex flex-col justify-center items-center space-y-6 text-white text-xl font-semibold z-40">
           <button
             onClick={() => setIsMenuOpen(false)}
             className="absolute top-5 right-6"

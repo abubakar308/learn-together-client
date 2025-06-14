@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 a.active{
-    background-color: aqua;
+    background-color: #F59E0B;
 }
 
 /* Dark theme styles */

@@ -8,7 +8,7 @@ const Footer = () => {
         {/* Branding */}
         <div>
           <h2 className="text-2xl font-bold">Learn Together</h2>
-          <p className="mt-3 text-sm text-white/80 dark:text-gray-400 leading-relaxed">
+          <p className="mt-3 text-sm text-white leading-relaxed">
             Connecting learners with top tutors. Learn from anywhere, anytime.
           </p>
         </div>
@@ -44,7 +44,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Note */}
-      <div className="border-t border-white/20 mt-10 pt-4 text-center text-sm text-white/70 dark:border-gray-700 dark:text-gray-400">
+      <div className="border-t border-white/20 mt-10 pt-4 text-center text-sm text-white">
         <p>&copy; {new Date().getFullYear()} Learn Together. Designed by Md Abu Bakar Siddique</p>
       </div>
     </footer>

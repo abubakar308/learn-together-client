@@ -1,4 +1,4 @@
-import { Autoplay } from "swiper/modules";
+import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import Slide from "./Slide";
@@ -9,20 +9,22 @@ import banner4 from "../assets/banner4.jpeg";
 const Banner = () => {
     return (
       <>
-      <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-          dynamicBullets: true, // Better pagination effect
-        }}
-        modules={[Autoplay]}
-        className="mySwiper mt-20"
-      >
+    <Swiper
+  spaceBetween={30}
+  effect="fade"
+  fadeEffect={{ crossFade: true }}
+  centeredSlides={true}
+  autoplay={{
+    delay: 3000,
+    disableOnInteraction: false,
+  }}
+  pagination={{
+    clickable: true,
+    dynamicBullets: true,
+  }}
+  modules={[Autoplay, EffectFade, Pagination]}
+  className="mySwiper mt-16 w-full h-[500px] rounded-lg"
+>
         <SwiperSlide>
           <Slide 
             image={banner1} 

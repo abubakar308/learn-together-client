@@ -8,27 +8,32 @@ const Stats = () => {
     const [users, setUsers] = useState([]);
   
     // Fetch categories
-    useEffect(() => {
-      fetch(`${import.meta.env.VITE_API_URL}/category`)
-        .then((res) => res.json())
-        .then((data) => setCategories(data))
-        .catch((error) => console.error("Error fetching categories:", error));
-    }, []);
-  
-    // Fetch tutors
-    useEffect(() => {
-      fetch(`${import.meta.env.VITE_API_URL}/bookedtutors`)
-        .then((res) => res.json())
-        .then((data) => setUsers(data))
-        .catch((error) => console.error("Error fetching tutors:", error));
-    }, []);
+   useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const [categoryRes, tutorsRes, usersRes] = await Promise.all([
+        fetch(`${import.meta.env.VITE_API_URL}/category`),
+        fetch(`${import.meta.env.VITE_API_URL}/tutors`),
+        fetch(`${import.meta.env.VITE_API_URL}/bookedtutors`)
+      ]);
 
-    useEffect(() => {
-      fetch(`${import.meta.env.VITE_API_URL}/tutors`)
-        .then((res) => res.json())
-        .then((data) => setTutors(data))
-        .catch((error) => console.error("Error fetching tutors:", error));
-    }, []);
+      const [categoryData, tutorsData, usersData] = await Promise.all([
+        categoryRes.json(),
+        tutorsRes.json(),
+        usersRes.json()
+      ]);
+
+      setCategories(categoryData);
+      setTutors(tutorsData);
+      setUsers(usersData);
+    } catch (error) {
+      console.error("Error fetching stats data:", error);
+    }
+  };
+
+  fetchData();
+}, []);
+
   
     // Unique tutor emails
     const uniqueTutors = useMemo(

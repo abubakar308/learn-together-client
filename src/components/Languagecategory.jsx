@@ -20,17 +20,20 @@ const Languagecategory = () => {
               <Link 
                 to={`tutor/${category.category}`} 
                 key={category._id} 
-                className="flex justify-between items-center bg-white border border-gray-200 rounded-xl p-5 hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+                className="flex justify-between items-center bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-xl p-5 hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+
               >
                 <div className="flex items-center space-x-4">
-                  <img 
-                    className="w-16 h-16 object-cover rounded-full border border-gray-200" 
-                    src={category.icon} 
-                    alt={`${category.name} icon`} 
-                  />
+                 <img 
+  className="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-full border border-gray-300 dark:border-gray-600" 
+  src={category.icon} 
+  alt={`${category.name} icon`} 
+/>
+
                   <div className="text-left">
-                    <h3 className="text-2xl font-semibold text-primary">{category.name}</h3>
-                    <p className="text-gray-500">{category.teachers} teachers</p>
+                    <h3 className="text-2xl font-semibold text-primary ">{category.name}</h3>
+<p className="text-gray-500 dark:text-gray-300">{category.teachers} teachers</p>
+
                   </div>
                 </div>
                 <FcNext className="text-2xl text-secondary" />

@@ -3,6 +3,7 @@ import logo from "../assets/logo.png";
 import { useContext, useEffect, useState } from "react";
 import { Authcontext } from "../authprovider/Authprovider";
 import { RxCross1, RxHamburgerMenu } from "react-icons/rx";
+import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logout } = useContext(Authcontext);
@@ -104,19 +105,21 @@ const Navbar = () => {
           ) : null}
 
           {user ? (
-            <button
-              onClick={() => logout(navigate("/login"))}
-              className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition text-sm font-semibold"
-            >
-              Logout
-            </button>
+           <button
+  onClick={() => logout(navigate("/login"))}
+  className="flex items-center gap-2 bg-secondary text-white px-4 py-2 rounded-lg hover:bg-amber-600 transition text-sm font-semibold"
+>
+  <FaSignOutAlt /> Logout
+</button>
+
           ) : (
-            <Link
-              to="/login"
-              className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition text-sm font-semibold"
-            >
-              Login
-            </Link>
+           <Link
+  to="/login"
+  className="flex items-center gap-2 bg-accent text-white px-4 py-2 rounded-lg hover:bg-emerald-600 transition text-sm font-semibold"
+>
+  <FaSignInAlt /> Login
+</Link>
+
           )}
 
           {/* Mobile Menu Button */}

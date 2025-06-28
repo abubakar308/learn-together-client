@@ -9,7 +9,7 @@ const Mainlayout = () => {
           <Navbar />
         </header>
       
-        <main className="flex-grow">
+        <main className="flex-grow bg-background dark:bg-darkBackground">
           <Outlet />
         </main>
       

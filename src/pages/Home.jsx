@@ -1,4 +1,5 @@
 import Banner from "../components/Banner";
+import BecomeATutor from "../components/BecomeATutor";
 import Howitworks from "../components/Howitworks";
 import Languagecategory from "../components/Languagecategory";
 import Ourgoal from "../components/Ourgoal";
@@ -11,9 +12,10 @@ const Home = () => {
             <Banner></Banner>
            <Stats></Stats>
            <Languagecategory></Languagecategory>
+           <Howitworks></Howitworks>
+           <BecomeATutor />
            <WeOffer></WeOffer>
            <Ourgoal></Ourgoal>
-           <Howitworks></Howitworks>
         </div>
     );
 };

@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import Swal from "sweetalert2";
+import { getAuth } from "firebase/auth";
 
 const Login = () => {
   const [togglePass, setTogglePass] = useState(false);
@@ -16,10 +17,11 @@ const Login = () => {
         const password = e.target.password.value;
        
         signInUser(email,password)
-        .then(res=>{
-            setUser(res);
-            navigate(location?.state ? location.state : "/" );
-        })
+        .then(() => {
+    const user = getAuth().currentUser;
+    setUser(user);
+    navigate(location?.state ? location.state : "/");
+  })
         .catch(error=> {
           console.log(error.message);
          

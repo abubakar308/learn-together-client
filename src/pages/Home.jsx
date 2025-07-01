@@ -5,6 +5,7 @@ import Howitworks from "../components/Howitworks";
 import Languagecategory from "../components/Languagecategory";
 import Ourgoal from "../components/Ourgoal";
 import Stats from "../components/Stats";
+import Testimonials from "../components/Testimonials";
 import WeOffer from "../components/WeOffer";
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
            <AboutUs />
            <WeOffer></WeOffer>
            <Ourgoal></Ourgoal>
+           <Testimonials />
         </div>
     );
 };

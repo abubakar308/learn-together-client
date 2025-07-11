@@ -67,7 +67,7 @@ const Addtutorials = () => {
               id="displayName"
               value={user.displayName}
               readOnly
-              className="mt-2 w-full p-3 border text-black border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              className="mt-2 w-full p-3 border dark:bg-gray-800 dark:text-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
     
@@ -79,7 +79,7 @@ const Addtutorials = () => {
               id="email"
               value={user.email}
               readOnly
-              className="mt-2 w-full p-3 border text-black border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              className="mt-2 w-full p-3 border dark:bg-gray-800 dark:text-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
     
@@ -92,7 +92,7 @@ const Addtutorials = () => {
               placeholder="Enter image URL"
               onChange={handleChange}
               required
-              className="mt-2 w-full p-3 border text-black border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              className="mt-2 w-full p-3 border dark:bg-gray-800 dark:text-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
     
@@ -104,7 +104,7 @@ const Addtutorials = () => {
               value={formData.category}
               onChange={handleChange}
               required
-              className="mt-2 w-full p-3 border text-black border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              className="mt-2 w-full p-3 border dark:bg-gray-800 dark:text-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
             >
               <option value="">Select language</option>
               <option value="english">English</option>
@@ -128,7 +128,7 @@ const Addtutorials = () => {
               placeholder="Price"
               onChange={handleChange}
               required
-              className="mt-2 w-full text-black p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+             className="mt-2 w-full p-3 border dark:bg-gray-800 dark:text-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
     
@@ -140,7 +140,7 @@ const Addtutorials = () => {
               placeholder="Describe your services"
               onChange={handleChange}
               required
-              className="mt-2 w-full text-black p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              className="mt-2 w-full dark:bg-gray-800 dark:text-white p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
             ></textarea>
           </div>
     

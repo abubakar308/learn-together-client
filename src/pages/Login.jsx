@@ -33,6 +33,7 @@ const Login = () => {
       Swal.fire({
         icon: "success",
         title: "Login successfull",
+        timer: 1500
       });
       navigate(location?.state ? location.state : "/" );
         const user = result.user;

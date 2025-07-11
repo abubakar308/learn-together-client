@@ -57,11 +57,11 @@ const TutorDetails = () => {
   
     return (
       <div className="p-6 bg-background">
-  <div className="max-w-md mx-auto p-3 bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
+  <div className="max-w-md mx-auto my-10 p-3 bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
     <img
       src={tutorial?.image}
       alt={tutorial?.displayName}
-      className="w-full h-48 object-cover"
+      className="w-full h-fit rounded-lg object-cover"
     />
     <div className="p-6">
       {/* Tutor's Name */}

@@ -6,7 +6,7 @@ const Slide = ({image, text}) => {
         style={{
             backgroundImage: `url(${image})`
         }}>
-            <p className=" text-2xl md:text-5xl font-black text-center py-5">
+            <p className=" text-2xl md:text-5xl text-primary font-black text-center py-5">
                 {text}
             </p>
            

@@ -39,12 +39,12 @@ const Mybookedtutor = () => {
         {tutors.map((tutor) => (
           <div
             key={tutor?._id}
-            className="bg-background dark:bg-darkBackground shadow-lg rounded-xl overflow-hidden hover:shadow-xl transition"
+            className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 shadow-lg rounded-xl overflow-hidden hover:shadow-xl transition"
           >
             <img
               src={tutor?.image}
               alt={tutor?.displayName}
-              className="w-full h-48 object-cover"
+              className="w-full min-h-48 object-cover"
             />
             <div className="p-4">
               {/* Tutor's Name */}

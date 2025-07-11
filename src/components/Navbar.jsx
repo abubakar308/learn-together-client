@@ -10,6 +10,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const [isDarkMode, setIsDarkMode] = useState(false);
+  console.log(user?.photoURL)
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
